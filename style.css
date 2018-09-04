@@ -16,7 +16,7 @@ padding-top: 20px;
 
 #title{
 
-  font-size: 20px;
+  font-size: 30px;
 }
 
 .myButton {
@@ -28,7 +28,7 @@ padding-top: 20px;
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
-	font-family:Verdana;
+	/* font-family:Verdana; */
 	font-size:27px;
 	font-weight:bold;
 	padding:10px 23px;
@@ -43,4 +43,8 @@ padding-top: 20px;
 	top:1px;
 }
 
-        
+        #operation:hover{
+          cursor: pointer;
+
+
+        }
