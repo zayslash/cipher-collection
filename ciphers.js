@@ -80,9 +80,6 @@ console.log(newKey);
 }
 
 
-
-
-
 submit.onclick = function(){
 let textdata = textbox.value;
 result.innerHTML = caesarCipher(textdata,parseInt(DOM_shift.value), method_specification);
