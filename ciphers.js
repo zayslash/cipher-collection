@@ -66,17 +66,32 @@ var VigenereCipher = function(text,key,method){
 var citext = "";
 var newKey = "";
 let z =0;
-for (let i =0; i < text.length; i++){
-   if (z === key.length){
-     z == 0;
+let hold =0;
+for (let i =0; i < text.length + hold; i++){
+   if (z === key.length ){
+     z = 0;
+     hold++;
+
  }else{
     newKey += key[z];
-    z++;
-}
+    z++;}
 }
 
-console.log(newKey);
+// console.log(newKey);
 
+for (let i =0; i < text.length; i++){
+  if(text[i] === " "){
+    citext += " ";
+    //i++;
+  }
+  else{
+   citext += codeToAscii((ascii(text[i])  + ascii(newKey[i])) % 26 + 97);
+   console.log(codeToAscii((ascii(text[i]))));
+ }
+
+}
+//return citext;
+console.log(citext);
 }
 
 
