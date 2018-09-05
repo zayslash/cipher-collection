@@ -9,7 +9,6 @@ var method_specification = "Encode";
 var menuPosition = ["Caesar Cipher"];
 let position = 0;
 
-console.log(method.innerHTML);
 method.onclick = function(){
   if (method.innerHTML === "Encode"){
     method.innerHTML = "Decode";
@@ -29,6 +28,9 @@ function codeToAscii(number){
     return String.fromCharCode(number);
 }
 
+
+
+// Caesar Cipher --------------------------------------------------
 var caesarCipher = function(text, shift,method){
 var citext = "";
   if(method === "Encode"){
@@ -39,7 +41,7 @@ var citext = "";
       }
       else{
        citext += codeToAscii(ascii(text[i]) + shift);
-       console.log(codeToAscii((ascii(text[i]))));
+       // console.log(codeToAscii((ascii(text[i]))));
      }
    }
 return citext;
@@ -59,6 +61,28 @@ return citext;
 }
 
 
+// Vigenere Cipher-----------------------------------------------------------------------
+var VigenereCipher = function(text,key,method){
+var citext = "";
+var newKey = "";
+let z =0;
+for (let i =0; i < text.length; i++){
+   if (z === key.length){
+     z == 0;
+ }else{
+    newKey += key[z];
+    z++;
+}
+}
+
+console.log(newKey);
+
+}
+
+
+
+
+
 submit.onclick = function(){
 let textdata = textbox.value;
 result.innerHTML = caesarCipher(textdata,parseInt(DOM_shift.value), method_specification);
@@ -66,7 +90,7 @@ result.innerHTML = caesarCipher(textdata,parseInt(DOM_shift.value), method_speci
 
 function loaders(){
    Title.innerHTML = menuPosition[position];
-
+   VigenereCipher("hellothis","hi","ckd")
 
 }
 
