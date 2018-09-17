@@ -167,15 +167,12 @@ if (position === menuPosition.length - 1){
 
 left_button.onclick = function(){
 if(position === 0){
-   position = 0;
+   position = menuPosition.length - 1;
 }else{
   position--;
 }
   display();
 }
-
-
-
 
 function loaders(){
   display();
