@@ -11,7 +11,7 @@ var left_button = document.getElementById("left");
 
 var method_specification = "Encode";
 
-var menuPosition = ["Caesar Cipher" , "Vigenere Cipher"];
+var menuPosition = ["Caesar Cipher" , "Vigenere Cipher", "ROT13"];
 let position = 0;
 
 var display = function(){
@@ -25,6 +25,11 @@ var display = function(){
    else if (menuPosition[position] === "Vigenere Cipher") {
 
      DOM_shift.type = "textbox";
+     Title.innerHTML = menuPosition[position];
+   }
+   else if (menuPosition[position] === "ROT13") {
+
+     DOM_shift.type = "none";
      Title.innerHTML = menuPosition[position];
    }
 }
@@ -80,6 +85,7 @@ for (let i = 0; i < text.length; i++){
 return citext;
 }
 }
+
 
 // Vigenere Cipher-----------------------------------------------------------------------
 
@@ -137,6 +143,14 @@ console.log(citext);
 }
 
 
+var ROT13 = function(text){
+  return caesarCipher(text,13, method_specification);
+}
+
+
+
+
+
 var function_loader = function(textdata){
 
   if (menuPosition[position] === "Caesar Cipher"){
@@ -145,6 +159,10 @@ var function_loader = function(textdata){
    else if (menuPosition[position] === "Vigenere Cipher") {
 
     return  VigenereCipher(textdata,DOM_shift.value, method_specification)
+   }
+   else if (menuPosition[position] === "ROT13") {
+
+    return  ROT13(textdata);
    }
 
 }
