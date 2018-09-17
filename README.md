@@ -15,12 +15,12 @@ The Caesar cipher is one of the earliest known and simplest ciphers. It is a typ
 
 <p>First we translate all of our characters to numbers, 'a'=0, 'b'=1, 'c'=2, ... , 'z'=25. We can now represent the caesar cipher encryption function, e(x), where x is the character we are encrypting, as:</p>
 
-<h4> e(x) = (x + k) mod 26 </h4>
+<h4> e(x) = (x + k) (mod 26) </h4>
 
 
 Where k is the key (the shift) applied to each letter. After applying this function the result is a number which must then be translated back into a letter. The decryption function is :
 
-<h4> e(x) = (x - k) mod 26 </h4>
+<h4> e(x) = (x - k) (mod 26) </h4>
 
     References
     
