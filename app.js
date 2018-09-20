@@ -2,7 +2,7 @@
 
 /*
  ToDo -----------------------------------------
- 
+
  Simple Substitution Cipher
  Atbash Cipher
  Baconian Cipher
@@ -26,7 +26,6 @@ document.write('<script src="stacks.js"></script>'); // STACKS
 }
 
 var Mainloaders = function(){
-
 Cipher_loaders();
 dataSrtuctures();
 UI();
