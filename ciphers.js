@@ -7,30 +7,92 @@ var method = document.getElementById("operation");
 var right_button = document.getElementById("right");
 var left_button = document.getElementById("left");
 
+function Stack()  {
+  this.dataStore = [];
+  this.top =0;
+  this.pop = pop;
+  this.push = push;
+  this.peek = peek;
+  this.length= length;
+
+  function push(element){
+    this.dataStore[this.top++] = element;
+
+  }
+
+  function pop(){
+    return this.dataStore[--this.top];
+  }
+
+
+  function peek(){
+    return this.dataStore[this.top-1];
+  }
+
+  function length(){
+    return this.top;
+  }
+
+  function clear(){
+    this.top = 0;
+  }
+
+}
+
+
+
+var caesar = {
+  name: "Caesar Cipher",
+  DOM_shift: "number",
+  Title: name,
+};
+
+var Vigenere = {
+  name: "Vigenere Cipher",
+  DOM_shift: "textbox",
+  Title: name,
+};
+
+
+var ROT13 = {
+  name: "ROT13",
+  DOM_shift: "textbox",
+  Title: name,
+};
+
+
+
+  console.log(caesar.name);
 
 
 var method_specification = "Encode";
+var menuStack = new Stack();
+var backwardStack = new Stack();
+
+menuStack.push("ROT13");
+menuStack.push("Vigenere Cipher");
+menuStack.push("Caesar Cipher");
 
 var menuPosition = ["Caesar Cipher" , "Vigenere Cipher", "ROT13"];
 let position = 0;
 
 var display = function(){
 
-  if (menuPosition[position] === "Caesar Cipher"){
+  if (menuStack.peek() === "Caesar Cipher"){
 
     DOM_shift.type = "number";
-    Title.innerHTML = menuPosition[position];
+    Title.innerHTML = menuStack.peek();
 
   }
-   else if (menuPosition[position] === "Vigenere Cipher") {
+   else if (menuStack.peek() === "Vigenere Cipher") {
 
      DOM_shift.type = "textbox";
-     Title.innerHTML = menuPosition[position];
+     Title.innerHTML = menuStack.peek();
    }
-   else if (menuPosition[position] === "ROT13") {
+   else if (menuStack.peek() === "ROT13") {
 
      DOM_shift.type = "none";
-     Title.innerHTML = menuPosition[position];
+     Title.innerHTML = menuStack.peek();
    }
 }
 
@@ -143,6 +205,7 @@ console.log(citext);
 }
 
 
+
 var ROT13 = function(text){
   return caesarCipher(text,13, method_specification);
 }
@@ -153,14 +216,14 @@ var ROT13 = function(text){
 
 var function_loader = function(textdata){
 
-  if (menuPosition[position] === "Caesar Cipher"){
+  if (menuStack.peek() === "Caesar Cipher"){
     return  caesarCipher(textdata,parseInt(DOM_shift.value), method_specification);
   }
-   else if (menuPosition[position] === "Vigenere Cipher") {
+   else if (menuStack.peek() === "Vigenere Cipher") {
 
     return  VigenereCipher(textdata,DOM_shift.value, method_specification)
    }
-   else if (menuPosition[position] === "ROT13") {
+   else if (menuStack.peek() === "ROT13") {
 
     return  ROT13(textdata);
    }
@@ -173,22 +236,37 @@ let textdata = textbox.value;
 result.innerHTML = function_loader(textdata);
 }
 
+var clicks = 0; // keeps count of backward left clicks
 
 right_button.onclick = function(){
-if (position === menuPosition.length - 1){
-        position = 0;
-     }else{
-  position++;
+
+  if (clicks > 0){
+    var temp = menuStack;
+    menuStack = backwardStack;
+    backwardStack = temp;
+    clicks = 0;
+  }else{
+  backwardStack.push(menuStack.peek())
+  menuStack.pop()
 }
   display();
+
 }
 
 left_button.onclick = function(){
-if(position === 0){
-   position = menuPosition.length - 1;
-}else{
-  position--;
+
+if (clicks == 0){
+  var temp = menuStack;
+  menuStack = backwardStack;
+  backwardStack = temp;
+  clicks++
 }
+else{
+  backwardStack.push(menuStack.peek())
+  menuStack.pop()
+  clicks++;
+}
+
   display();
 }
 
