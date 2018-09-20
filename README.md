@@ -1,5 +1,5 @@
 # cipher-collection
-<h1>JavaScript collection of ciphers </h1>
+<h1>Zayslash JavaScript collection of ciphers </h1>
 
 This repository serves as a collection of knowledge and implementatioin of
 <h3>Caesar Cipher</h3>
