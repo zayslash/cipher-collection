@@ -1,3 +1,5 @@
+//NAME: ZANIF SANDY (ZAYSLASH)
+
 var textbox = document.getElementById("text-box");
 var submit = document.getElementById("submit");
 var result = document.getElementById("results");
@@ -6,39 +8,6 @@ var DOM_shift = document.getElementById("shift");
 var method = document.getElementById("operation");
 var right_button = document.getElementById("right");
 var left_button = document.getElementById("left");
-
-function Stack()  {
-  this.dataStore = [];
-  this.top =0;
-  this.pop = pop;
-  this.push = push;
-  this.peek = peek;
-  this.length= length;
-
-  function push(element){
-    this.dataStore[this.top++] = element;
-
-  }
-
-  function pop(){
-    return this.dataStore[--this.top];
-  }
-
-
-  function peek(){
-    return this.dataStore[this.top-1];
-  }
-
-  function length(){
-    return this.top;
-  }
-
-  function clear(){
-    this.top = 0;
-  }
-
-}
-
 
 
 var caesar = {
@@ -117,103 +86,6 @@ function codeToAscii(number){
 }
 
 
-// Caesar Cipher------------------------------------------------------------------------
-
-var caesarCipher = function(text, shift,method){
-var citext = "";
-  if(method === "Encode"){
-   for (let i = 0; i < text.length; i++){
-      if(text[i] === " "){
-        citext += " ";
-        //i++;
-      }
-      else{
-       citext += codeToAscii(ascii(text[i]) + shift);
-       // console.log(codeToAscii((ascii(text[i]))));
-     }
-   }
-return citext;
-} else{
-for (let i = 0; i < text.length; i++){
-   if(text[i] === " "){
-     citext += " ";
-     //i++;
-   }
-   else{
-    citext += codeToAscii(ascii(text[i]) - shift);
-    console.log(codeToAscii((ascii(text[i]))));
-  }
-}
-return citext;
-}
-}
-
-
-// Vigenere Cipher-----------------------------------------------------------------------
-
-var VigenereCipher = function(text,key,method){
-
-text = text.toLowerCase();
-var citext = "";
-var newKey = "";
-
-let z =0;
-let hold =0;
-
-for (let i =0; i < text.length + hold; i++){
-
-   if (z === key.length ){
-     z = 0;
-     hold++;
- } else {
-
-    newKey += key[z];
-    z++;
-  }
-}
-
-console.log(newKey);
-
-if (method === "Encode"){
-    for (let i =0; i < text.length; i++){
-      if(text[i] === " "){
-        citext += " ";
-        //i++;
-      }
-
-      else{
-       citext += codeToAscii(((ascii(text[i]) - 64  + ascii(newKey[i])) % 26) + 97);
-       console.log(((ascii(text[i]) - 64  + ascii(newKey[i])) % 26) + 97);
-     }
-    }
-    return citext;
-  }else{
-    for (let i =0; i < text.length; i++){
-      if(text[i] === " "){
-        citext += " ";
-        //i++;
-      }
-      else{
-       citext += codeToAscii(((ascii(text[i])  - ascii(newKey[i]) + 26) % 26) + 97);
-       console.log(codeToAscii((ascii(text[i]))));
-     }
-    }
-   return citext;
-  }
-
-console.log(citext);
-}
-
-
-
-var ROT13 = function(text){
-  return caesarCipher(text,13, method_specification);
-}
-
-
-
-
-
 var function_loader = function(textdata){
 
   if (menuStack.peek() === "Caesar Cipher"){
@@ -225,7 +97,7 @@ var function_loader = function(textdata){
    }
    else if (menuStack.peek() === "ROT13") {
 
-    return  ROT13(textdata);
+    return  caesarCipher(textdata,13, method_specification);
    }
 
 }
