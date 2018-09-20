@@ -1,4 +1,6 @@
 # cipher-collection
+
+<!-- NAME: ZANIF SANDY (ZAYSLASH) -->
 <h1>Zayslash JavaScript collection of ciphers </h1>
 
 This repository serves as a collection of knowledge and implementatioin of

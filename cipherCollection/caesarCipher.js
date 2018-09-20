@@ -28,10 +28,3 @@ for (let i = 0; i < text.length; i++){
 return citext;
 }
 }
-
-
-
-// Child
-var ROT13 = function(text){
-  return caesarCipher(text,13, method_specification);
-}
