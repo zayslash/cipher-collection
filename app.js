@@ -14,6 +14,7 @@ function Cipher_loaders(){       //COLLECTION OF CIPHERS
 document.write('<script src="CipherCollection/caesarCipher.js"></script>');
 document.write('<script src="CipherCollection/ROT13Cipher.js"></script>');
 document.write('<script src="CipherCollection/vigenereCipher.js"></script>');
+document.write('<script src="CipherCollection/ATBASHCipher.js"></script>');
 }
 
 function UI(){

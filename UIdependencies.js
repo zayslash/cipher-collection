@@ -10,33 +10,15 @@ var right_button = document.getElementById("right");
 var left_button = document.getElementById("left");
 
 
-
-// var caesar = {
-//   name: "Caesar Cipher",
-//   DOM_shift: "number",
-//   Title: name,
-// };
-//
-// var Vigenere = {
-//   name: "Vigenere Cipher",
-//   DOM_shift: "textbox",
-//   Title: name,
-// };
-
-// var ROT13 = {
-//   name: "ROT13",
-//   DOM_shift: "textbox",
-//   Title: name,
-// };
-//
-
 var method_specification = "Encode";
 var menuStack = new Stack();
 var backwardStack = new Stack();
 
+menuStack.push("Atbash Cipher");
 menuStack.push("ROT13");
 menuStack.push("Vigenere Cipher");
 menuStack.push("Caesar Cipher");
+
 
 var display = function(){
 
@@ -52,6 +34,11 @@ var display = function(){
      Title.innerHTML = menuStack.peek();
    }
    else if (menuStack.peek() === "ROT13") {
+
+     DOM_shift.type = "none";
+     Title.innerHTML = menuStack.peek();
+   }
+   else if (menuStack.peek() === "Atbash Cipher") {
 
      DOM_shift.type = "none";
      Title.innerHTML = menuStack.peek();
@@ -88,6 +75,10 @@ var function_loader = function(textdata){
    else if (menuStack.peek() === "ROT13") {
 
     return  ROT13(textdata);
+   }
+   else if (menuStack.peek() === "Atbash Cipher") {
+
+    return  AtbashCipher(textdata, method_specification);
    }
 
 }
