@@ -9,7 +9,6 @@ var method = document.getElementById("operation");
 var right_button = document.getElementById("right");
 var left_button = document.getElementById("left");
 
-
 var method_specification = "Encode";
 var menuStack = new Stack();
 var backwardStack = new Stack();
@@ -18,7 +17,6 @@ menuStack.push("Atbash Cipher");
 menuStack.push("ROT13");
 menuStack.push("Vigenere Cipher");
 menuStack.push("Caesar Cipher");
-
 
 var display = function(){
 
@@ -83,9 +81,12 @@ var function_loader = function(textdata){
 
 }
 
+
 submit.onclick = function(){
 let textdata = textbox.value;
 result.innerHTML = function_loader(textdata);
+download_file(function_loader(textdata),`z${FileName}`,'text/plain')
+
 }
 
 var clicks = 0; // keeps count of backward left clicks

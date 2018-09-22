@@ -50,3 +50,21 @@ padding-top: 20px;
 
 
         }
+
+
+
+#save-icon{
+  width: 50px;
+  padding-top: 20px;
+}
+
+#a{
+  text-decoration: none;
+  color: white;
+  font-size: 13px;
+
+}
+
+#a div {
+  padding-left: 8px;
+}

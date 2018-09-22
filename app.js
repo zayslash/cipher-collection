@@ -2,9 +2,7 @@
 
 /*
  ToDo -----------------------------------------
-
  Simple Substitution Cipher
- Atbash Cipher
  Baconian Cipher
  Hill Cipher
  Running Key Cipher
@@ -19,6 +17,7 @@ document.write('<script src="CipherCollection/ATBASHCipher.js"></script>');
 
 function UI(){
   document.write('<script src="UIdependencies.js"></script>'); //MENU USER INTTERFACE
+  document.write('<script src="fileHandle.js"></script>'); //DEALS WITH LOCAL FILES
 }
 
 function dataSrtuctures(){
