@@ -2,10 +2,12 @@
 
 body {
 padding-left: 20px;
+padding-right: 20px;
 padding-top: 20px;
   background-color: black;
   color:white;
   font-family: sans-serif;
+  position: relative;
 }
 
 
@@ -19,6 +21,9 @@ padding-top: 20px;
 #title{
 
   font-size: 30px;
+  display: inline-block;
+
+
 }
 
 .myButton {
@@ -54,17 +59,60 @@ padding-top: 20px;
 
 
 #save-icon{
-  width: 50px;
-  padding-top: 20px;
+  width: 40px;
+
 }
 
 #a{
   text-decoration: none;
   color: white;
   font-size: 13px;
+  /* position: relative; */
+}
+
+#save-title{
+ /* top: 10px; */
+/* padding-bottom: 50px; */
+ /* position: absolute; */
+ padding-left: 15px;
+ /* position: absolute; */
+ padding-bottom: 30px;
+ display: inline-block;
 
 }
 
-#a div {
-  padding-left: 8px;
+
+
+#noob{
+
+ display: inline-block;
+ padding-top: 10px;
+ padding-right: 2px;
+
+
+}
+
+#upimg{
+  width: 40px;
+  padding-left: 20px;
+  padding-right: 10px;
+  position:  absolute;
+  padding-top: 3px;
+
+}
+
+#upimg:hover{
+
+  cursor: pointer;
+}
+
+#st{
+  padding-left: 5px;
+}
+#results{
+  background-color: #306dd1;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }

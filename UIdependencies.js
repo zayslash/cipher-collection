@@ -8,6 +8,7 @@ var DOM_shift = document.getElementById("shift");
 var method = document.getElementById("operation");
 var right_button = document.getElementById("right");
 var left_button = document.getElementById("left");
+var upClick = document.getElementById("upimg");
 
 var method_specification = "Encode";
 var menuStack = new Stack();
@@ -54,7 +55,7 @@ method.onclick = function(){
     method.innerHTML = "Decode";
     method_specification = "Encode";
         submit.value = "Encode";
-  }else{
+  }else {
     method.innerHTML = "Encode";
     submit.value = "Decode";
     method_specification = "Decode";
@@ -96,6 +97,16 @@ let textdata = textbox.value;
 result.innerHTML = function_loader(textdata);
 download_file(function_loader(textdata),`z${FileName}`,'text/plain')
 }
+
+
+upClick.onclick = function(){
+     textbox.value = result.innerText;
+     //console.log("cli")
+}
+
+
+
+
 
 var clicks = 0; // keeps count of backward left clicks
 right_button.onclick = function(){
