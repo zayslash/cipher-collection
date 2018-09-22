@@ -3,6 +3,7 @@
 /*
  ToDo -----------------------------------------
  Simple Substitution Cipher
+ Auto Key Cipher
  Baconian Cipher
  Hill Cipher
  Running Key Cipher
