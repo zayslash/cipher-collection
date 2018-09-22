@@ -21,7 +21,7 @@ for (let i =0; i < text.length + hold; i++){
   }
 }
 
-console.log(newKey);
+//console.log(newKey);
 
 if (method === "Encode"){
     for (let i =0; i < text.length; i++){
@@ -32,7 +32,7 @@ if (method === "Encode"){
 
       else{
        citext += codeToAscii(((ascii(text[i]) - 64  + ascii(newKey[i])) % 26) + 97);
-       console.log(((ascii(text[i]) - 64  + ascii(newKey[i])) % 26) + 97);
+      // console.log(((ascii(text[i]) - 64  + ascii(newKey[i])) % 26) + 97);
      }
     }
     return citext;
@@ -44,7 +44,7 @@ if (method === "Encode"){
       }
       else{
        citext += codeToAscii(((ascii(text[i])  - ascii(newKey[i]) + 26) % 26) + 97);
-       console.log(codeToAscii((ascii(text[i]))));
+      // console.log(codeToAscii((ascii(text[i]))));
      }
     }
    return citext;

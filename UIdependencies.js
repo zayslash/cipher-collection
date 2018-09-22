@@ -13,6 +13,7 @@ var method_specification = "Encode";
 var menuStack = new Stack();
 var backwardStack = new Stack();
 
+menuStack.push("Auto Key Cipher");
 menuStack.push("Atbash Cipher");
 menuStack.push("ROT13");
 menuStack.push("Vigenere Cipher");
@@ -39,6 +40,11 @@ var display = function(){
    else if (menuStack.peek() === "Atbash Cipher") {
 
      DOM_shift.type = "none";
+     Title.innerHTML = menuStack.peek();
+   }
+   else if (menuStack.peek() === "Auto Key Cipher") {
+
+     DOM_shift.type = "textbox";
      Title.innerHTML = menuStack.peek();
    }
 }
@@ -78,19 +84,20 @@ var function_loader = function(textdata){
 
     return  AtbashCipher(textdata, method_specification);
    }
+   else if (menuStack.peek() === "Auto Key Cipher") {
+
+    return  AutoKeyCipher(textdata, DOM_shift.value, method_specification);
+   }
 
 }
-
 
 submit.onclick = function(){
 let textdata = textbox.value;
 result.innerHTML = function_loader(textdata);
 download_file(function_loader(textdata),`z${FileName}`,'text/plain')
-
 }
 
 var clicks = 0; // keeps count of backward left clicks
-
 right_button.onclick = function(){
 
   if (clicks > 0){
