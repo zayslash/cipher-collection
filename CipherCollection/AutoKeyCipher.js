@@ -14,17 +14,6 @@ var newKey = "";
 let z =0;
 let hold =0;
 
-// for (let i =0; i < text.length + hold; i++){
-//
-//    if (z === key.length ){
-//      z = 0;
-//      hold++;
-//  } else {
-//
-//     newKey += key[z];
-//     z++;
-//   }
-// }
 
 if (key.length <= text.length){
     newKey = key;
