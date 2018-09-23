@@ -20,6 +20,7 @@ var AtbashCipher = function(text,method){
 
             }else if (text[i] === " ") {
               citext += " ";
+              i++;
             }
          }
       }
@@ -38,6 +39,7 @@ var AtbashCipher = function(text,method){
 
             }else if (text[i] === " ") {
               citext += " ";
+              i++;
 
             }
          }

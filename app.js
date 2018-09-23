@@ -14,7 +14,7 @@ document.write('<script src="CipherCollection/ROT13Cipher.js"></script>');
 document.write('<script src="CipherCollection/AutoKeyCipher.js"></script>');
 document.write('<script src="CipherCollection/vigenereCipher.js"></script>');
 document.write('<script src="CipherCollection/ATBASHCipher.js"></script>');
-
+document.write('<script src="CipherCollection/affineCipher.js"></script>');
 }
 
 function UI(){

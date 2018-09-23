@@ -5,15 +5,19 @@ var submit = document.getElementById("submit");
 var result = document.getElementById("results");
 var Title = document.getElementById("title");
 var DOM_shift = document.getElementById("shift");
+var DOM_shift_two = document.getElementById("shift-two");
 var method = document.getElementById("operation");
 var right_button = document.getElementById("right");
 var left_button = document.getElementById("left");
 var upClick = document.getElementById("upimg");
+var incase = document.getElementById("incase");
+var keyWord = document.getElementById("key-word");
 
 var method_specification = "Encode";
 var menuStack = new Stack();
 var backwardStack = new Stack();
 
+menuStack.push("Affine Cipher");
 menuStack.push("Auto Key Cipher");
 menuStack.push("Atbash Cipher");
 menuStack.push("ROT13");
@@ -25,27 +29,48 @@ var display = function(){
   if (menuStack.peek() === "Caesar Cipher"){
 
     DOM_shift.type = "number";
+    DOM_shift.style.display  = "inline-block";
+    keyWord.style.display  = "inline-block";
     Title.innerHTML = menuStack.peek();
 
   }
    else if (menuStack.peek() === "Vigenere Cipher") {
 
      DOM_shift.type = "textbox";
+     DOM_shift.style.display  = "inline-block";
+     DOM_shift_two.style.display  = "none";
+     keyWord.style.display  = "inline-block";
      Title.innerHTML = menuStack.peek();
    }
    else if (menuStack.peek() === "ROT13") {
 
-     DOM_shift.type = "none";
+     DOM_shift.style.display  = "none";
+     DOM_shift_two.style.display  = "none";
+     keyWord.style.display  = "none";
      Title.innerHTML = menuStack.peek();
    }
    else if (menuStack.peek() === "Atbash Cipher") {
 
-     DOM_shift.type = "none";
+     DOM_shift.style.display  = "none";
+     DOM_shift_two.style.display  = "none";
+     keyWord.style.display  = "none";
      Title.innerHTML = menuStack.peek();
+
    }
    else if (menuStack.peek() === "Auto Key Cipher") {
 
      DOM_shift.type = "textbox";
+     DOM_shift.style.display  = "inline-block";
+     keyWord.style.display  = "inline-block";
+     DOM_shift_two.style.display  = "none";
+     Title.innerHTML = menuStack.peek();
+   }
+   else if (menuStack.peek() === "Affine Cipher") {
+
+     DOM_shift.type = "number";
+     DOM_shift_two.style.display  = "inline-block";
+     keyWord.style.display  = "inline-block";
+
      Title.innerHTML = menuStack.peek();
    }
 }
@@ -68,6 +93,8 @@ function codeToAscii(number){
     return String.fromCharCode(number);
 }
 
+
+
 var function_loader = function(textdata){
 
   if (menuStack.peek() === "Caesar Cipher"){
@@ -88,6 +115,10 @@ var function_loader = function(textdata){
    else if (menuStack.peek() === "Auto Key Cipher") {
 
     return  AutoKeyCipher(textdata, DOM_shift.value, method_specification);
+   }
+   else if (menuStack.peek() === "Affine Cipher") {
+
+    return  affineCipher(textdata, parseInt(DOM_shift.value) , parseInt(DOM_shift_two.value), method_specification);
    }
 
 }

@@ -116,3 +116,11 @@ padding-top: 20px;
   padding-top: 20px;
   padding-bottom: 20px;
 }
+
+#shift-two {
+  display: none;
+}
+
+#key-word{
+  display: inline-block;
+}
