@@ -94,3 +94,29 @@ To encipher a message, find the letter you wish to encipher in the top row, then
 
       References
       http://practicalcryptography.com/ciphers/classical-era/rot13/
+      
+      
+      
+      
+      
+<h3>Affine Cipher</h3>
+
+
+<h5>Introduction </h5>
+
+<p>The Affine cipher is a special case of the more general monoalphabetic substitution cipher.
+
+The cipher is less secure than a substitution cipher as it is vulnerable to all of the attacks that work against substitution ciphers, in addition to other attacks. The cipher's primary weakness comes from the fact that if the cryptanalyst can discover (by means of frequency analysis, brute force, guessing or otherwise) the plaintext of two ciphertext characters, then the key can be obtained by solving a simultaneous equation [1].
+
+<h5>The Algorithm </h5>
+<p>
+The 'key' for the Affine cipher consists of 2 numbers, we'll call them a and b. The following discussion assumes the use of a 26 character alphabet (m = 26). a should be chosen to be relatively prime to m (i.e. a should have no factors in common with m). For example 15 and 26 have no factors in common, so 15 is an acceptable value for a, however 12 and 26 have factors in common (e.g. 2) so 12 cannot be used for a value of a. When encrypting, we first convert all the letters to numbers ('a'=0, 'b'=1, ..., 'z'=25). The ciphertext letter c, for any given letter p is (remember p is the number representing a letter):
+
+<h4>c = ap + b (mod m) </h4>
+
+The decryption function is:
+
+<h4>p = a^-1(c-b) (mod m) </h4>
+
+where a−1 is the multiplicative inverse of a in the group of integers modulo m.
+</p>
